@@ -43,8 +43,10 @@ module.exports = React.createClass
     className = classnames 'light-dropdown', "is-for-#{@props.name}",
       'is-chosen': @props.displayText?
 
+    displayStyle = @props.displayStyle or {}
+
     div className: className, onClick: @onClick,
-      div className: 'display', onClick: @onDisplayClick,
+      div style: displayStyle, className: 'display', onClick: @onDisplayClick,
         @props.displayText or @props.defaultText
       div className: 'triangle'
       if @state.show
